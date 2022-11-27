@@ -1,0 +1,205 @@
+Microsoft Windows [Version 10.0.19044.2251]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\cassa>git init
+Initialized empty Git repository in C:/Users/cassa/.git/
+
+C:\Users\cassa>cd C:\Users\cassa\djangogirls
+
+C:\Users\cassa\djangogirls>git init
+Initialized empty Git repository in C:/Users/cassa/djangogirls/.git/
+
+C:\Users\cassa\djangogirls>config --global user.name "Cassandra"
+'config' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\cassa\djangogirls>git config --global user.name "Cassandra"
+
+C:\Users\cassa\djangogirls>git config --global user.email "cwells134@ivytech.edu"
+
+C:\Users\cassa\djangogirls>git --version
+git version 2.38.1.windows.1
+
+C:\Users\cassa\djangogirls>git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        blog/
+        manage.py
+        mysite/
+        requirements.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\cassa\djangogirls>git add .
+
+C:\Users\cassa\djangogirls>git commit -m "My Django Girls app, first commit"
+[main (root-commit) 0343377] My Django Girls app, first commit
+ 16 files changed, 296 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 blog/__init__.py
+ create mode 100644 blog/admin.py
+ create mode 100644 blog/apps.py
+ create mode 100644 blog/migrations/0001_initial.py
+ create mode 100644 blog/migrations/__init__.py
+ create mode 100644 blog/models.py
+ create mode 100644 blog/tests.py
+ create mode 100644 blog/views.py
+ create mode 100644 manage.py
+ create mode 100644 mysite/__init__.py
+ create mode 100644 mysite/asgi.py
+ create mode 100644 mysite/settings.py
+ create mode 100644 mysite/urls.py
+ create mode 100644 mysite/wsgi.py
+ create mode 100644 requirements.txt
+
+C:\Users\cassa\djangogirls>git remote add origin https://github.com/cwells134/my-first-blog.git
+
+C:\Users\cassa\djangogirls>push -u origin main
+'push' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\cassa\djangogirls>git push -u origin main
+Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (19/19), 4.43 KiB | 567.00 KiB/s, done.
+Total 19 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/cwells134/my-first-blog.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\cassa\djangogirls>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   blog/views.py
+        modified:   mysite/urls.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        blog/templates/
+        blog/urls.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\cassa\djangogirls>git add .
+
+C:\Users\cassa\djangogirls>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   blog/templates/blog/post_list.html
+        new file:   blog/urls.py
+        modified:   blog/views.py
+        modified:   mysite/urls.py
+
+
+C:\Users\cassa\djangogirls>git commit -m "Changed the HTML for the site."
+[main 1df8811] Changed the HTML for the site.
+ 4 files changed, 20 insertions(+)
+ create mode 100644 blog/templates/blog/post_list.html
+ create mode 100644 blog/urls.py
+
+C:\Users\cassa\djangogirls>git push
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (10/10), 1.06 KiB | 272.00 KiB/s, done.
+Total 10 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/cwells134/my-first-blog.git
+   0343377..1df8811  main -> main
+
+C:\Users\cassa\djangogirls>python -m venv venv
+
+C:\Users\cassa\djangogirls>python3 -m venv myvenv
+
+C:\Users\cassa\djangogirls>python -m venv myvenv
+
+C:\Users\cassa\djangogirls>python manage.py shell
+Python 3.10.8 (tags/v3.10.8:aaaf517, Oct 11 2022, 16:50:30) [MSC v.1933 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.5.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: Post.oblects.all()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+Cell In [1], line 1
+----> 1 Post.oblects.all()
+
+NameError: name 'Post' is not defined
+
+In [2]: from blog.models import Post
+
+In [3]: Post.oblects.all()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In [3], line 1
+----> 1 Post.oblects.all()
+
+AttributeError: type object 'Post' has no attribute 'oblects'
+
+In [4]:  Post.objects.all()
+Out[4]: <QuerySet []>
+
+In [5]: from django.contrib.auth.models import User
+
+In [6]: User.objects.all()
+Out[6]: <QuerySet [<User: cassa>]>
+
+In [7]: Post.objects.create(author=me, title='Sample title', text='Test')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+Cell In [7], line 1
+----> 1 Post.objects.create(author=me, title='Sample title', text='Test')
+
+NameError: name 'me' is not defined
+
+In [8]: me = User.objects.get(username='cassa')
+
+In [9]: Post.objects.create(author=me, title='Sample title', text='Test')
+Out[9]: <Post: Sample title>
+
+In [10]: User.objects.all()
+Out[10]: <QuerySet [<User: cassa>]>
+
+In [11]:  Post.objects.all()
+Out[11]: <QuerySet [<Post: Sample title>]>
+
+In [12]: Post.objects.filter(author=me)
+Out[12]: <QuerySet [<Post: Sample title>]>
+
+In [13]: from django.utils import timezone
+
+In [14]: Post.objects.filter(published_date__lte=timezone.now())
+Out[14]: <QuerySet []>
+
+In [15]: post = Post.objects.get(title="Sample title")
+
+In [16]: post.publish()
+
+In [17]: Post.objects.filter(published_date__lte=timezone.now())
+Out[17]: <QuerySet [<Post: Sample title>]>
+
+In [18]: Post.objects.order_by('created_date')
+Out[18]: <QuerySet [<Post: Sample title>]>
+
+In [19]: Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+Out[19]: <QuerySet [<Post: Sample title>]>
+
+In [20]: exit()
+
+C:\Users\cassa\djangogirls>
